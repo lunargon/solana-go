@@ -36,7 +36,7 @@ func GetAddressLookupTable(
 		return nil, err
 	}
 	if account == nil || account.Value == nil {
-		return nil, fmt.Errorf("account not found")
+		return nil, rpc.ErrNotFound
 	}
 	return DecodeAddressLookupTableState(account.GetBinary())
 }
@@ -52,7 +52,7 @@ func GetAddressLookupTableStateWithOpts(
 		return nil, err
 	}
 	if account == nil || account.Value == nil {
-		return nil, fmt.Errorf("account not found")
+		return nil, rpc.ErrNotFound
 	}
 	return DecodeAddressLookupTableState(account.GetBinary())
 }
